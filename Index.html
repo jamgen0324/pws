@@ -1,0 +1,673 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properties -->
+    <title>Homepage - Semantic</title>
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/reset.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/site.css">
+
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/container.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/grid.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/header.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/image.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/menu.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/divider.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/segment.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/button.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/list.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/icon.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/components/transition.css">
+    <link rel="stylesheet" href="/styles/StyleSheet1.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/Semantic-UI-CSS-master/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <title></title>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0 auto;
+            scroll-behavior: smooth;
+            width: 100%;
+        }
+        .hidden.menu {
+            display: none;
+        }
+
+        .masthead.segment {
+            min-height: 700px;
+            padding: 1em 0em;
+        }
+
+        .masthead .logo.item img {
+            margin-right: 1em;
+        }
+
+        .masthead .ui.menu .ui.button {
+            margin-left: 0.5em;
+        }
+
+        .masthead h1.ui.header {
+            margin-top: 3em;
+            margin-bottom: 0em;
+            font-size: 4em;
+            font-weight: normal;
+        }
+
+        .masthead h2 {
+            font-size: 1.7em;
+            font-weight: normal;
+        }
+
+        #slide_right {
+            position: absolute;
+            right: 1em;
+            top: 19em;
+        }
+
+        #slide_left {
+            position: absolute;
+            left: 1em;
+            top: 19em;
+        }
+
+        .slider_container {
+            width: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ui.vertical.stripe {
+            padding: 8em 0em;
+        }
+
+            .ui.vertical.stripe h3 {
+                font-size: 2em;
+            }
+
+            .ui.vertical.stripe .button + h3,
+            .ui.vertical.stripe p + h3 {
+                margin-top: 3em;
+            }
+
+            .ui.vertical.stripe .floated.image {
+                clear: both;
+            }
+
+            .ui.vertical.stripe p {
+                font-size: 1.33em;
+            }
+
+            .ui.vertical.stripe .horizontal.divider {
+                margin: 3em 0em;
+            }
+
+        .quote.stripe.segment {
+            padding: 0em;
+        }
+
+            .quote.stripe.segment .grid .column {
+                padding-top: 5em;
+                padding-bottom: 5em;
+            }
+
+        .footer.segment {
+            padding: 5em 0em;
+        }
+
+        .secondary.pointing.menu .toc.item {
+            display: none;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .ui.fixed.menu {
+                display: none !important;
+            }
+
+            .secondary.pointing.menu .item,
+            .secondary.pointing.menu .menu {
+                display: none;
+            }
+
+            .secondary.pointing.menu .toc.item {
+                display: block;
+            }
+
+            .masthead.segment {
+                min-height: 350px;
+            }
+
+            .masthead h1.ui.header {
+                font-size: 2em;
+                margin-top: 1.5em;
+            }
+
+            .masthead h2 {
+                margin-top: 0.5em;
+                font-size: 1.5em;
+            }
+        }
+    </style>
+
+    <script src="plugins/Semantic-UI-CSS-master/components/sidebar.js"></script>
+    <script src="plugins/Semantic-UI-CSS-master/components/visibility.js"></script>
+    <script src="plugins/Semantic-UI-CSS-master/components/transition.js"></script>
+
+    <script>
+        $(document)
+            .ready(function () {
+
+                // fix menu when passed
+                $('.masthead')
+                    .visibility({
+                        once: false,
+                        onBottomPassed: function () {
+                            $('.fixed.menu').transition('fade in');
+                        },
+                        onBottomPassedReverse: function () {
+                            $('.fixed.menu').transition('fade out');
+                        }
+                    })
+                    ;
+
+                // create sidebar and attach to menu open
+                $('.ui.sidebar')
+                    .sidebar('attach events', '.toc.item')
+                    ;
+
+            })
+            ;
+    </script>
+
+</head>
+<body>
+    <!-- Following Menu -->
+    <div class="ui large top fixed menu transition hidden" style="display: undefined !important;">
+        <div class="ui container">
+            <div class="ui pointing dropdown link item" id="menu_more">
+                <span class="text">More</span>
+                <i class="dropdown icon"></i>
+                <div class="menu transition hidden" id="ddown_content">
+                    <div class="header">Project</div>
+                    <div class="item"><a href="#my_gantt_chart">Gantt Chart</a></div>
+                    <div class="item"><a href="#my_resources">Resource</a></div>
+                    <div class="item"><a href="#top">Network</a></div>
+                    <div class="divider"></div>
+                    <div class="header">Others</div>
+                    <div class="item"><a href="#about">About</a></div>
+                </div>
+            </div>
+            <a class="item" href="#services">Services</a>
+            <a class="item" href="#portfolio">Portfolio</a>
+            <a class="item" href="#slideshow">Slideshow</a>
+            <a class="item" href="#contact">Contact</a>
+            <div class="right item">
+                <div class="item">
+                    <i class="user icon"></i> 18463
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu left">
+        <a class="item" href="#my_gantt_chart">Gantt Chart</a>
+        <a class="item" href="#my_resources">Resource</a>
+        <a class="item" href="#top">Network</a>
+        <a class="item" href="#about">About Us</a>
+        <a class="item" href="#services">Services</a>
+        <a class="item" href="#portfolio">Portfolio</a>
+        <a class="item" href="#slideshow">Slideshow</a>
+        <a class="item" href="#contact">Contact</a>
+    </div>
+    <!-- Page Contents -->
+    <div class="pusher" id="top">
+        <div class="ui inverted vertical masthead center aligned segment" id="home_content">
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a class="item" href="#services">Services</a>
+                    <a class="item" href="#portfolio">Portfolio</a>
+                    <a class="item" href="#slideshow">Slideshow</a>
+                    <a class="item" href="#contact">Contact</a>
+                    <div class="right item">
+                        <div class="item">
+                            <i class="user icon"></i> 18463
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui text container">
+                <h1 class="ui inverted header">
+                    Project Management Web Support
+                </h1>
+                <h2>Powered by 18463 in T4-2023</h2>
+                <div class="ui fluid action input">
+                    <input type="text" placeholder="Email Address">
+                    <div class="positive ui button"><i class="envelope icon"></i> Subscribe</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ui vertical stripe segment">
+            <div class="ui middle aligned stackable grid container">
+                <div class="row">
+                    <div class="eight wide column">
+                        <a href="https://docs.google.com/spreadsheets/d/1u1DqKqTDLkN5M5FLASx2xoe58TY6tBOCGli4BKWG4q8/edit?usp=sharing" target="_blank">
+                            <h2 class="ui header">
+                                <i class="chart bar icon"></i>
+                                <div class="content">
+                                    My Gantt Chart Solution
+                                    <div class="sub header">View our proposed gantt chart solution for your project.</div>
+                                </div>
+                            </h2>
+                        </a>
+                        <br /><br />
+                        <a href="https://www.youtube.com/watch?v=s3XG3X-zceM" target="_blank">
+                            <h2 class="ui header">
+                                <i class="youtube icon"></i>
+                                <div class="content">
+                                    My Promotional Video
+                                    <div class="sub header">Watch our promotional video.</div>
+                                </div>
+                            </h2>
+                        </a>
+                        <br /><br />
+                        <h2 class="ui header">Links</h2>
+                        <div class="ui buttons">
+                            <button class="ui teal button"><a href="files/18463_Project Management_Assessment 1.docx" target="_blank" style="color: inherit;">Assessment 1</a></button>
+                            <button class="ui teal button"><a href="files/18463_Project Management_Assessment 2.docx" target="_blank" style="color: inherit;">Assessment 2</a></button>
+                            <button class="ui teal button"><a href="https://thedojosite-5ebd4.web.app/login" target="_blank" style="color: inherit;">To Do</a></button>
+                        </div>
+
+                        <h3 class="ui header">A project is extremely useful for people who wants to keep their ideas, plans, and activities organized.</h3>
+                        <div class="ui bulleted list">
+                            <div class="item">Day to day activities are indefinite</div>
+                            <div class="item">Projects have a strict timeline to follow</div>
+                            <div class="item">A Project can be a product, service, event, or result</div>
+                            <div class="item">Projects have different scopes</div>
+                            <div class="item">A project can also have different levels of scopes, where they are divided by modules</div>
+                        </div>
+                        <h3 class="ui header">A project can have limited or indefinite timeline, it all depends on what project you are going to start.</h3>
+                        <br />
+                        <a href="https://www.youtube.com/watch?v=rBSCvPYGnTc&t=1323s" target="_blank">
+                            <button class="ui teal button">
+                                Reference
+                            </button>
+                        </a>
+                    </div>
+                    <div class="six wide right floated column">
+                        <div class="ui huge header" style="font-size:12em"><i class="chart bar icon"></i></div>
+                        <br />
+                        <img class="ui medium image" src="/images/myqr.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui vertical stripe quote segment" id="about">
+            <div class="ui equal width stackable internally celled grid container">
+                <div class="center aligned row">
+                    <div class="column">
+                        <div class="ui huge header" style="font-size:12em"><i class="globe icon"></i></div>
+                    </div>
+                    <div class="column left aligned">
+                        <h1 class="ui header">Our Values</h1>
+                        <br />
+                        <h3 class="ui dividing header">
+                            Mission
+                        </h3>
+                        <h4 class="ui header">
+                            To deliver the optimum approach for our client to achieve their goals by the use of our software solutions.
+                        </h4>
+                        <br />
+                        <h3 class="ui dividing header">
+                            Vision
+                        </h3>
+                        <h4 class="ui header">
+                            Maintaining high-quality programs, a rich user experience and a quality interface for easy navigation.
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui vertical stripe segment">
+            <div class="ui container" id="my_gantt_chart">
+                <h3 class="ui header" id="my_gantt">Project Gantt Chart</h3>
+                <img class="ui fluid image" src="/images/MyGantt.jpg">
+
+                <h4 class="ui horizontal header divider">
+                    <a>- -</a>
+                </h4>
+            </div>
+            <div class="ui container right aligned" id="my_resources">
+                <h3 class="ui header" id="my_gantt">Project Resources</h3>
+                <img class="ui fluid image" src="/images/resources.jpg">
+            </div>
+        </div>
+
+        <div class="ui raised very padded container segment" id="services">
+            <div class="ui container center aligned">
+                <h1 class="ui header" id="my_gantt">
+                    Services
+                    <div class="sub header">What we offer</div>
+                </h1>
+            </div>
+            <br /><br />
+            <div class="ui four column doubling stackable grid container">
+                <div class="column">
+                    <h2 class="ui center aligned icon header">
+                        <i class="tv icon"></i>
+                        UX
+                    </h2>
+                </div>
+                <div class="column">
+                    <h2 class="ui center aligned icon header">
+                        <i class="handshake icon"></i>
+                        Software Support
+                    </h2>
+                </div>
+                <div class="column">
+                    <h2 class="ui center aligned icon header">
+                        <i class="cog icon"></i>
+                        Software Development
+                    </h2>
+                </div>
+                <div class="column">
+                    <h2 class="ui center aligned icon header">
+                        <i class="tasks icon"></i>
+                        Project Management
+                    </h2>
+                </div>
+            </div>
+            <div class="ui four column doubling stackable grid container">
+                <div class="column">
+                    <h2 class="ui center aligned icon header">
+                        <i class="database icon"></i>
+                        Database Management
+                    </h2>
+                </div>
+                <div class="column">
+                    <h2 class="ui center aligned icon header">
+                        <i class="cloud icon"></i>
+                        Cloud
+                    </h2>
+                </div>
+                <div class="column">
+                    <h2 class="ui center aligned icon header">
+                        <i class="address book icon"></i>
+                        Software Consultation
+                    </h2>
+                </div>
+                <div class="column">
+                    <h2 class="ui center aligned icon header">
+                        <i class="shield alternate icon"></i>
+                        Security
+                    </h2>
+                </div>
+            </div>
+            <br /><br />
+        </div>
+
+        <div class="ui vertical stripe segment" id="portfolio">
+            <div class="ui container center aligned">
+                <h1 class="ui header" id="my_gantt">
+                    Portfolio
+                    <div class="sub header">What we highlight</div>
+                </h1>
+            </div>
+            <br /><br />
+            <div class="ui three column doubling stackable grid container">
+                <div class="column">
+                    <div class="ui fluid link card">
+                        <div class="ui slide masked reveal image">
+                            <img src="/images/time.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Team Fu &amp; Hess</a>
+                            <div class="meta">
+                                <span class="date">Created in Sep 2014</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui fluid link card">
+                        <div class="ui slide masked reveal image">
+                            <img src="/images/goal.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Team Fu &amp; Hess</a>
+                            <div class="meta">
+                                <span class="date">Created in Sep 2014</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui fluid link card">
+                        <div class="ui slide masked reveal image">
+                            <img src="/images/cost.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Team Fu &amp; Hess</a>
+                            <div class="meta">
+                                <span class="date">Created in Sep 2014</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui raised very padded container segment" id="slideshow">
+            <div class="ui container center aligned">
+                <h1 class="ui header" id="my_gantt">
+                    Slideshow
+                </h1>
+            </div>
+            <br />
+            <br />
+            <div class="ui container center vertical aligned" style="position: relative; height: 40em; overflow:hidden">
+                <table style="height:40em; width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td class="slider_container" id="slider_img_1" style="width: 100%; padding: 0; border: none; transition: width .7s; ">
+                                <img class="ui image" src="/images/pm1.jpg" style="max-height: 40em; margin: auto">
+                            </td>
+                            <td class="slider_container" id="slider_img_2" style="padding: 0; border: none; transition: width .7s;">
+                                <img class="ui image" src="/images/pm2.jpg" style="max-height: 40em; margin: auto ">
+                            </td>
+                            <td class="slider_container" id="slider_img_3" style="padding: 0; border: none; transition: width .7s;">
+                                <img class="ui image" src="/images/pm3.jpeg" style="max-height: 40em; margin: auto ">
+                            </td>
+                            <td class="slider_container" id="slider_img_4" style="padding: 0; border: none; transition: width .7s;">
+                                <img class="ui image" src="/images/pm4.jpg" style="max-height: 40em; margin: auto">
+                            </td>
+                            <td class="slider_container" id="slider_img_5" style="padding: 0; border: none; transition: width .7s;">
+                                <img class="ui image" src="/images/pm5.jpg" style="max-height: 40em; margin: auto ">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="circular ui icon button" id="slide_left" onclick="slider_change('minus')">
+                    <i class="chevron left icon"></i>
+                </button>
+                <button class="circular ui icon button" id="slide_right" onclick="slider_change('plus')">
+                    <i class="chevron right icon"></i>
+                </button>
+
+            </div>
+            <input type="text" id="slider_value" value="1" style="visibility:hidden">
+            <input type="text" id="slider_timer" value="1" style="visibility: hidden">
+        </div>
+
+        <br />
+        <hr style="margin-bottom:0;" />
+
+        <div class="ui vertical stripe quote segment" id="contact">
+            <div class="ui equal width stackable internally celled grid container">
+                <div class="row">
+                    <div class="column">
+                        <h2 class="ui header">
+                            <i class="phone icon"></i>
+                            <div class="content">
+                                Contact Us
+                                <div class="sub header">For inquiries please contact us.</div>
+                            </div>
+                            <br />
+                            <div class="sub header"><i class="map marker alternate icon"></i>Australia</div>
+                            <br />
+                            <div class="sub header"><i class="mobile alternate icon"></i>+0012345677822</div>
+                            <br />
+                            <div class="sub header"><i class="envelope icon"></i>jamgen@gmail.com</div>
+                        </h2>
+                    </div>
+                    <div class="column left aligned">
+                        <h1 class="ui header" id="my_gantt">
+                            Send Feedback
+                        </h1>
+                        <form class="ui form">
+                            <div class="field">
+                                <label>Name</label>
+                                <input type="text" name="first-name" placeholder="Name">
+                            </div>
+                            <div class="field">
+                                <label>Email</label>
+                                <input type="text" name="last-name" placeholder="Email Address">
+                            </div>
+                            <div class="field">
+                                <label>Comment</label>
+                                <textarea></textarea>
+                            </div>
+                            <button class="ui button" type="submit">Comment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img class="ui fluid image" src="/images/pm_banner.jpg">
+
+        <div class="ui vertical stripe segment center aligned">
+            <a href="#top">
+                <button class="massive circular ui icon button" style="background-color: inherit;">
+                    <i class="angle up icon" style="font-size:2em"></i>
+                </button>
+            </a>
+            <br />
+            Project Management Web Support Made By Jam in Wells College
+        </div>
+
+        <div class="ui inverted vertical footer segment">
+            <div class="ui container">
+                <div class="ui stackable inverted divided equal height stackable grid">
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">About</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">Sitemap</a>
+                            <a href="#" class="item">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">Services</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">In Store Products</a>
+                            <a href="#" class="item">Online Reservations</a>
+                            <a href="#" class="item">Online Merchandises</a>
+                            <a href="#" class="item">What's Trending'</a>
+                        </div>
+                    </div>
+                    <div class="seven wide column">
+                        <h4 class="ui inverted header">Footer Header</h4>
+                        <p>Want coffee? Book a reservation now!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>   
+    function slider_change(p1) {
+        var slider = parseInt($("#slider_value").val());
+        var old_slider = slider;
+        if (p1 == 'plus') {
+            slider = slider + 1;
+        }
+        else {
+            slider = slider - 1;
+        }
+        if (slider > 5){
+            slider = 1;
+        }
+        if (slider == 0) {
+            slider = 5;
+        }
+        $("#slider_value").val(slider);
+        $('#slider_timer').val(1);
+        $("#slider_img_" + old_slider).width("0px");
+        $("#slider_img_" + slider).width("100%");
+    }
+    var start = new Date;
+
+    setInterval(function () {
+        var slider_timer = parseInt($("#slider_timer").val());
+        slider_timer = slider_timer + 1;
+        $('#slider_timer').val(slider_timer);
+        if (slider_timer > 5) {
+            slider_change('plus');
+        }
+    }, 1000);
+
+    function side_menu(p1) {
+        if (p1 == 'open') {
+            $("#side_menu").addClass("uncover visible");
+        }
+        else {
+            $("#side_menu").removeClass("uncover visible");
+        }
+    }
+    
+    $( "#menu_more" ).hover(
+        function(){
+            $( this ).addClass("active visible");
+            $( "#ddown_content").removeClass("hidden");    
+            $( "#ddown_content").addClass("visible");
+            $( "#ddown_content").css({"display": "block !important", "margin-top":0});
+        },
+        function(){
+            var isHovered = $( "#ddown_content" ).is(":hover");
+            if ( isHovered ){
+                }
+            else{
+                $( this ).removeClass("active visible");
+                $( "#ddown_content").removeClass("visible");
+                $( "#ddown_content").addClass("hidden");
+                $( "#ddown_content").removeAttr("style");
+            }
+        }
+    );
+
+</script>
+<script>
+window.less = {
+        async: true,
+        environment: 'production',
+        fileAsync: false,
+        onReady: false,
+        useFileCache: true
+};
+</script>
+<script src="plugins/Semantic-UI-CSS-master/semantic.min.js"></script>
